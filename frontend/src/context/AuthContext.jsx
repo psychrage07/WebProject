@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
         try {
           // Verify token if needed, or just set user
           const config = { headers: { Authorization: `Bearer ${parsedUser.token}` } };
-          const { data } = await axios.get('http://localhost:5000/api/auth/me', config);
+          const { data } = await axios.get('https://webproject-1906.onrender.com/api/auth/me', config);
           setUser({ ...data, token: parsedUser.token });
         } catch (error) {
           console.error('Invalid token', error);
@@ -28,13 +28,13 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = async (email, password) => {
-    const { data } = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+    const { data } = await axios.post('https://webproject-1906.onrender.com/api/auth/login', { email, password });
     localStorage.setItem('userInfo', JSON.stringify(data));
     setUser(data);
   };
 
   const register = async (name, email, password, role) => {
-    const { data } = await axios.post('http://localhost:5000/api/auth/register', { name, email, password, role });
+    const { data } = await axios.post('https://webproject-1906.onrender.com/api/auth/register', { name, email, password, role });
     localStorage.setItem('userInfo', JSON.stringify(data));
     setUser(data);
   };

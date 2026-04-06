@@ -49,9 +49,9 @@ const TaskModal = ({ task, onClose, refreshTasks, users }) => {
     try {
       const config = { headers: { Authorization: `Bearer ${user.token}` } };
       if (task) {
-        await axios.put(`http://localhost:5000/api/tasks/${task._id}`, formData, config);
+        await axios.put(`https://webproject-1906.onrender.com/api/tasks/${task._id}`, formData, config);
       } else {
-        await axios.post('http://localhost:5000/api/tasks', formData, config);
+        await axios.post('https://webproject-1906.onrender.com/api/tasks', formData, config);
       }
       refreshTasks();
       onClose();
@@ -63,7 +63,7 @@ const TaskModal = ({ task, onClose, refreshTasks, users }) => {
   const handleDelete = async () => {
     try {
       const config = { headers: { Authorization: `Bearer ${user.token}` } };
-      await axios.delete(`http://localhost:5000/api/tasks/${task._id}`, config);
+      await axios.delete(`https://webproject-1906.onrender.com/api/tasks/${task._id}`, config);
       refreshTasks();
       onClose();
     } catch (err) {

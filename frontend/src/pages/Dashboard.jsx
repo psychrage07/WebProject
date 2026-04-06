@@ -16,7 +16,7 @@ const Dashboard = () => {
   const fetchTasks = async () => {
     try {
       const config = { headers: { Authorization: `Bearer ${user.token}` } };
-      const { data } = await axios.get('http://localhost:5000/api/tasks', config);
+      const { data } = await axios.get('https://webproject-1906.onrender.com/api/tasks', config);
       setTasks(data);
     } catch (error) {
       console.error(error);
@@ -26,7 +26,7 @@ const Dashboard = () => {
   const fetchUsers = async () => {
     try {
       const config = { headers: { Authorization: `Bearer ${user.token}` } };
-      const { data } = await axios.get('http://localhost:5000/api/auth/users', config);
+      const { data } = await axios.get('https://webproject-1906.onrender.com/api/auth/users', config);
       setUsers(data);
     } catch (error) {
       console.error(error);
