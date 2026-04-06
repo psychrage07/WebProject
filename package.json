@@ -1,0 +1,13 @@
+{
+  "name": "task-collab-platform",
+  "version": "1.0.0",
+  "description": "Root workspace to start frontend and backend concurrently",
+  "scripts": {
+    "dev": "npx concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd backend && node index.js",
+    "client": "cd frontend && npm run dev",
+    "install-all": "npm run install-client && npm run install-server",
+    "install-client": "cd frontend && npm install",
+    "install-server": "cd backend && npm install"
+  }
+}
